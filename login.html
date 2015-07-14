@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="css/css-reset.css">
+	<link rel="stylesheet" type="text/css" href="css/validate.css">
+	<script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/app/progress.js"></script>
+	<style type="text/css">
+		/* 公用样式 */
+		.btn-ok{ width: 136px; height: 40px; border: none; background: url(./images/login-btn.png) no-repeat; font-size: 16px; color: #fff; line-height: 40px;}
+		.btn-ok:hover{ background: url(./images/login-btn1.png) no-repeat;}
+
+		.btn-no{ width: 135px; height: 41px; border: none; background: url(./images/btn-no.png) no-repeat; font-size: 16px; color: #0874ca; line-height: 44px;}
+		.btn-no:hover{ background: url(./images/btn-no1.png) no-repeat;}
+
+		/* 导航 */
+		.totalbar{ width: 100%; height: 60px; background: #fff;}
+		.nav{ width: 960px; height: 60px; background: url(./images/logo1.png) no-repeat left center; margin: 0 auto; overflow: hidden;}
+		.nav >h2{ font-size: 20px; color: #000; float: left; height: 60px; line-height: 60px; margin-left: 126px;}
+		.nav >span{float: right; height: 60px; line-height: 60px; font-size: 16px; color: #666;}
+
+		/* footer */
+		.footer{width: 100%; height: 160px; background: #fff; padding-top: 20px; overflow: hidden;}
+		.footer >p{ font-size: 12px; color: #666;}
+		.footer >img{ margin-top: 22px;}
+
+		.wrap{ min-height: 600px; width: 100%; background: #0874ca;}
+		.container{ width: 960px;min-height: 440px; margin: 0 auto; background: url(./images/login-bg.png) no-repeat left center; overflow: hidden; padding-bottom: 30px;}
+		.login-c{ width: 326px; margin: 0px auto auto 550px; min-height: 300px; padding-top: 70px;}
+		.login-c>em{ visibility: hidden; display: block; text-align: left; color: #f4e9ab; background: url(./images/err-icon.png) left center no-repeat; text-indent: 30px;}
+		#has-error{ visibility: visible!important;}
+		.login-c>input{ padding-left: 6px; width: 320px; height: 40px; margin-bottom: 20px;}
+		.login-c>input:focus{ box-shadow: 1px 1px 1px #006bc2, 1px 1px 1px #006bc2;}
+		.l-title{ overflow: hidden; padding-bottom: 20px; width: 346px;}
+		.l-title>h2{ font-size: 20px; color: #fff; float: left;}
+		.l-title>a{ font-size: 14px; margin-top: 7px; color: #fff; float: right; width: 106px; background: url(./images/login.png) no-repeat right center;}
+		.dv-lbtn{ overflow: hidden; margin-top: 20px;}
+		.dv-lbtn>button{float: left; margin-right: 20px;}
+		.dv-lbtn>a{ font-size: 14px; color: #fff; float: left; height: 44px; line-height: 44px;}
+		.oth-login{overflow: hidden; margin-top: 20px;}
+		.oth-login>span{ font-size: 14px; color: #fff; float: left;}
+		.oth-login>.qq-l{ background: url(./images/l-qq.png) no-repeat; margin-left: 20px; display: inline-block; width: 22px; height: 26px; float: left;}
+		.oth-login>.sina-l{ background: url(./images/l-sina.png) no-repeat; margin-left: 20px; display: inline-block; width: 33px; height: 26px; float: left;}
+		.oth-login>.wx-l{ background: url(./images/l-wx.png) no-repeat; margin-left: 20px; display: inline-block; width: 31px; height: 26px; float: left;}
+		.err-valid{ display: none; width: 320px; min-height: 41px; position: relative; margin: 0px auto; margin-bottom: 20px; border-radius: 5px; background:#006bc2 url(./images/err_b.png)  no-repeat center bottom; overflow: hidden;}
+		.err-valid>.top{position: absolute; width: 320px; height: 5px; top: 0; left: 0px; background: url(./images/err_t.png) no-repeat;}
+		.err-valid>.left{position: absolute; width: 5px; height: 90%; top: 5px; left: 0px; background: url(./images/err-bg_12.png) repeat;}
+		.err-valid>.right{position: absolute; width: 5px; height: 90%; top: 5px; left: 315px; background: url(./images/err-bg_12.png) repeat;}
+
+		
+
+		.err-ul{ margin: 10px auto 10px 10px;}
+		.err-ul{ float: left;}
+		.err-ul>li{ height: 30px; line-height: 30px; text-align: left; text-indent: 30px; background: url(./images/err-icon.png) no-repeat left center;}
+		.err-ul>li>span{ font-size: 14px; color: #fff;}
+		.validate{ display: none; margin-top: 20px;}
+		/*.input-wrap{ position: absolute; left: 0; top: 0;}*/
+
+		.show-val{ display: block;}
+	</style>
+</head>
+<body>
+	<!-- 导航 开始 -->
+	<div class="totalbar">
+		<div class="nav">
+			<h2>中网用户中心</h2>
+			<span>欢迎登录中网用户中心！</span>
+		</div>
+	</div>
+	<!-- 导航 结束 -->
+
+	<div class="wrap">
+		<div class="container">
+			<div class="login-c">
+				<div class="l-title">
+					<h2>登录</h2>
+					<a href="regist.html">注册账号</a>
+				</div>
+				<input id="userName" type="text" placeholder="请输入账号" />
+				<input id="passWord" type="password" placeholder="请输入密码"/>
+				<em id="has-error">请输入格式正确的邮箱</em>
+				<!-- <div class="err-valid">
+					<i class="top"></i>
+					<i class="left"></i>
+					<i class="right"></i>
+					<ul class="err-ul">
+						<li>
+							<span>请输入格式正确的邮箱</span>
+						</li>
+						<li>
+							<span>请输入6-10位的密码</span>
+						</li>
+					</ul>
+				</div> -->
+				<div class="validate">
+					<div class="input-wrap">
+					    <!-- <label for="geetest">拖动完成验证:</label> -->
+					    <div class="captcha-wrap">
+					      <script type="text/javascript" src="http://api.geetest.com/get.php?gt=421b84eeaee7b2aed4c0ec5706d8b571" async></script>
+					    </div>
+					</div>
+				</div>
+				<div class="dv-lbtn">
+					<button class="btn-ok">登录</button>
+					<a href="find-pwd.html">忘记密码？</a>
+				</div>
+				<div class="oth-login">
+					<span>使用第三方登录：</span>
+					<a href="related.html" class="qq-l"></a>
+					<a href="related.html" class="sina-l"></a>
+					<a href="related.html" class="wx-l"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- footer 开始 -->
+	<div class="footer">
+		<p>
+			电信与信息服务业务经营许可证：京ICP证101069号&nbsp;京ICP备ICP09107995号&nbsp;京公网安备11010802010887号&nbsp;北龙中网（北京）科技有限责任公司 版权所有
+		</p>
+		<img src="images/foot.png">
+	</div>
+
+	<script type="text/javascript">
+		$(".btn-ok").click(function(event) {
+			if ($("#userName").val() == "admin" && $("#passWord").val() == "admin") {
+				$(".err-valid").removeClass('show-val');
+				window.location.href="user-center.html"
+			}else{
+				$(".err-valid").addClass('show-val');
+			}
+			
+		});
+
+		//初始化页面高度
+		initPage();
+	</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="css/css-reset.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+	<style type="text/css">
+		/* 导航部分 */
+		.totalbar{ width: 100%; height: 60px; background: #fff;}
+		.nav{ width: 960px; height: 60px; background: url(./images/logo1.png) no-repeat left center; margin: 0 auto; overflow: hidden;}
+		.nav >h2{ font-size: 20px; color: #000; float: left; height: 60px; line-height: 60px; margin-left: 126px;}
+		.nav >span{float: right; height: 60px; line-height: 60px; font-size: 16px; color: #666;}
+
+		.btn-ok{ width: 136px; height: 40px; border: none; background: url(./images/login-btn.png) no-repeat; font-size: 16px; color: #fff; line-height: 40px;}
+		.btn-ok:hover{ background: url(./images/login-btn1.png) no-repeat;}
+
+		.btn-no{ width: 134px; height: 40px; line-height: 40px; border: none; background: url(./images/btn-no.png) no-repeat; font-size: 16px; color: #0874ca;}
+.btn-no:hover{ background: url(./images/btn-no1.png) no-repeat;}
+
+		.wrap{/* min-height: 750px;*/ width: 100%;}
+		.wrap-container{ width: 100%; background: #0874ca;}
+		.container{ width: 960px; min-height: 500px; margin: 0 auto; overflow: hidden;}
+
+		/* 设置保密问题 */
+		/* 设置保密问题 */
+.authen{min-width: 710px; min-height: 500px; margin: 0 auto; padding-top: 100px; margin-left: 126px; margin-bottom: 100px;}
+.authen>h2{ text-align: left; font-size: 24px; color: #fff; font-weight: bold; text-indent: 124px; padding-bottom: 6px;}
+.authen>p{ text-align: left; font-size: 14px; color: #fff; height: 32px; line-height: 32px; text-indent: 124px;}
+.authen>button{ float: left; margin-left: 124px;}
+.auth-ul{ margin-top: 10px;}
+.auth-ul>li{ text-align: left; height: 68px; line-height: 40px;}
+.auth-ul>li>i{color: #fff;}
+
+.auth-ul>li>span{ display: inline-block; width: 100px; height: 40px; text-align: right; margin-right: 20px; font-size: 16px; color: #fff;}
+.auth-ul>li>em{ display: none; font-size: 14px; color: #ff0000; height: 38px; line-height: 38px; margin-left: 12px;}
+.auth-ul>li>div{ display: inline-block;}
+.li-group{ height: 60px!important;}
+
+		/* 找回密码 */
+		.find-pwd{margin-left: 124px;}
+		.input-wrap>label{ color: #fff;}
+
+
+		/* 自定义选择下拉框 */
+		.divselect{width:320px; height: 38px;}
+		.divselect cite{width:320px; height:38px;line-height:38px; display:block; font-size: 14px; color:#999; cursor:pointer;font-style:normal;
+		padding-left:4px; padding-right:30px; border:1px solid #cdcdcd; background:url(./images/select.png) no-repeat right center; background-color: #fff;}
+		.divselect ul{width:354px;border:1px solid #cdcdcd; background-color:#ffffff; position:absolute; z-index:20000; margin-top:-1px; display:none;}
+		.divselect ul li{height:38px; line-height:38px;}
+		.divselect ul li a{display:block; height:38px; color:#999; font-size: 14px; text-decoration:none; padding-left:10px; padding-right:10px;}
+		.divselect ul li a:hover{background-color:#1c8de7; color: #fff;}
+
+		.mail-change>button{float: left;}
+
+		.dyna-pwd>input{padding-left: 6px; height: 36px; line-height: 38px; border:2px solid #cdcdcd; border-radius: 2px; width: 210px!important;}
+		.dyna-pwd>input:focus{outline: none; border:2px solid #31c552; box-shadow: 1px 1px 1px #0265b3,1px 1px 1px #0265b3;}
+		.dyna-pwd>button{ width: 129px; height: 39px; line-height: 39px; font-size: 14px; color: #999; border:none; background: url(./images/reg-btn.png) no-repeat;}
+		.dyna-pwd>button:hover{ background: url(./images/reg-btn1.png) no-repeat;}
+
+
+		/* footer */
+		.footer{width: 100%; height: 110px; background: #fff; padding-top: 20px; overflow: hidden;}
+		.footer >p{ font-size: 12px; color: #666;}
+		.footer >img{ margin-top: 22px;}
+
+
+		
+	</style>
+	
+    
+</head>
+<body>
+	<!-- 导航 开始 -->
+	<div class="totalbar">
+		<div class="nav">
+			<h2>中网用户中心</h2>
+			<span>欢迎登录中网用户中心！</span>
+		</div>
+	</div>
+	<!-- 导航 结束 -->
+
+	<div class="wrap">
+		<div class="wrap-container">
+			<div class="container">
+			<div class="authen mail-change">
+				<h2>找回密码</h2>
+				<p>您将进行修改密码操作，为了保证您的账号安全，请先进行验证。</p>
+				<ul class="auth-ul">
+					<li>
+						<span>保密方式</span>
+						<div id="divselect1" class="divselect">
+						    <cite >邮箱验证</cite>
+						    <ul>
+						        <li><a href="javascript:;" selectid="1">手机验证</a></li>
+						        <li><a href="javascript:;" selectid="2">邮箱验证</a></li>
+						        <li><a href="javascript:;" selectid="3">保密问题</a></li>
+						    </ul>    
+						    <input type="hidden"/>                
+						</div>
+					</li>
+					<li>
+						<span>手机号码</span>
+						<i>186****670</i>
+					</li>
+					<li class="dyna-pwd">
+						<span>验证码</span>
+						<input type="text"/>
+						<button class="btn-no">获取验证码</button>
+					</li>
+				</ul>
+				<button id="phoneValidate" class="btn-ok">继续</button>
+			</div>
+		</div>
+		</div>
+		
+	</div>
+
+
+	<!-- footer 开始 -->
+	<div class="footer">
+		<p>
+			电信与信息服务业务经营许可证：京ICP证101069号&nbsp;京ICP备ICP09107995号&nbsp;京公网安备11010802010887号&nbsp;北龙中网（北京）科技有限责任公司 版权所有
+		</p>
+		<img src="images/foot.png">
+	</div>
+
+	<script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/app/divselect.js"></script>
+	<script type="text/javascript" src="js/app/progress.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$.divselect("#divselect1", "#inputselect");
+			
+			$("#phoneValidate").click(function(){
+			 	window.location.href = "set-pwd.html";
+			 })
+
+			//初始化页面高度
+			initPage();
+
+	    });
+	</script>
+</body>
+</html>
